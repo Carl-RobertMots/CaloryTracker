@@ -27,6 +27,13 @@ const ItemCtrl = (function(){
 
 //UI CTRL
 const UICtrl = (function (){
+    //UI Selectors
+    const UISelectors = {
+        itemList: "#item-list",
+        itemNameInput: "#item-name",
+        itemCaloriesInput: "#item-calories",
+        addBtn: "add-btn"
+    }
     return {
         populateItemList: function(items){
             let html = "";
@@ -52,6 +59,8 @@ const App = (function(ItemCtrl, UICtrl){
             //Getting items from data structure
             const items =ItemCtrl.getItems()
             UICtrl.populateItemList(items)
+            // load event listeners
+            loadEventListeners();
         }
     }
 })(ItemCtrl, UICtrl);
